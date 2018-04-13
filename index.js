@@ -80,7 +80,10 @@ function createAppWindow() {
 
 
 app.on('ready', function() {
-    app.dock.hide();
+    if (process.platform === 'darwin'){
+        app.dock.hide();
+    }
+
     if (!isDev){
       autoUpdater.checkForUpdates();
     }
