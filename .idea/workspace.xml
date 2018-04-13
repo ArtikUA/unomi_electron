@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a577ae4f-a41f-4da6-81d2-b5c41df1fd6d" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/css/mac.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/windows.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/tray.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tray.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/windows.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/windows.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tray_window.html" beforeDir="false" afterPath="$PROJECT_DIR$/tray_window.html" afterDir="false" />
     </list>
@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tray_window.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tray_window.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tray_window.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+            <state relative-caret-position="404">
+              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -60,9 +60,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="windows.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="windows.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/windows.css">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="mac.css" pinned="false" current-in-tab="false">
@@ -82,6 +86,7 @@
         <option value="$PROJECT_DIR$/css/tray.css" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/tray_window.html" />
+        <option value="$PROJECT_DIR$/css/windows.css" />
       </list>
     </option>
   </component>
@@ -255,16 +260,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/windows.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/mac.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tray_window.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
+        <state relative-caret-position="404">
+          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/windows.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
