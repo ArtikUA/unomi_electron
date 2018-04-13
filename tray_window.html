@@ -1,0 +1,62 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="css/tray.css" rel="stylesheet"/>
+  <META charset="utf-8">
+</head>
+<body>
+<div class="win">
+  <img class="arrow-top" src="images/arrow-top.png" alt="">
+  <div class="block">
+    <header>
+      UNOMI V 1.01
+      <img class="align-right" src="images/circle.png" alt="">
+    </header>
+    <section>
+      <div class="title">
+        Current Apps
+      </div>
+      <div class="apps">
+        <div class="item">
+          <div class="logo">
+            <img src="images/logo.png" alt="">
+          </div>
+          <div class="name">
+            UNOMI<br>
+                  2D Lip syncing software
+          </div>
+          <div class="open">
+            <button id="open" type="button" name="button">Open </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <footer>
+      <span class="align-left">
+        Done syncing
+      </span>
+      <span id="signout" class="align-right">
+        <img class="off" src="images/signout.png" alt="">
+        Sign Out
+      </span>
+    </footer>
+
+  </div>
+
+</div>
+
+<script>
+const { ipcRenderer } = require('electron');
+document.getElementById('open').addEventListener('click', (event) => {
+  event.preventDefault();
+  ipcRenderer.send('app:open');
+})
+document.getElementById('signout').addEventListener('click', (event) => {
+  event.preventDefault();
+  ipcRenderer.send('signout');
+})
+
+</script>
+</body>
+</html>

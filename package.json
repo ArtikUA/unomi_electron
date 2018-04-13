@@ -1,0 +1,76 @@
+{
+    "name": "unomi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "electron": "./node_modules/.bin/electron .",
+        "pack": "electron-builder --dir",
+        "dist-mac": "electron-builder --mac",
+        "dist-win": "electron-builder --win",
+        "postinstall": "install-app-deps"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "auto-launch": "^5.0.5",
+        "electron-is-dev": "^0.3.0",
+        "electron-log": "^2.2.14",
+        "electron-updater": "^2.21.4"
+    },
+    "build": {
+        "appId": "com.electron.unomi",
+        "copyright": "Copyright © 2018 undefined",
+        "productName": "unomi",
+        "electronVersion": "1.8.4",
+        "asar": true,
+        "directories": {
+            "output": "dist"
+        },
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "category": "public.app-category.Graphics-design",
+            "identity": null,
+            "icon": "images/unomi.icns"
+        },
+        "dmg": {
+            "background": "images/background.tif",
+            "icon": "images/unomi.icns",
+            "iconSize": "100",
+            "window": {
+                "width": 544,
+                "height": 408
+            },
+            "contents": [
+                {
+                    "x": 145,
+                    "y": 257
+                },
+                {
+                    "x": 400,
+                    "y": 255,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "win": {
+          "target": ["nsis"],
+          "icon": "images/128X128.ico"
+        },
+        "nsis": {
+          "installerIcon": "images/128X128.ico",
+          "uninstallerIcon": "images/128X128.ico",
+          "license": "LICENSE",
+          "runAfterFinish": true
+        }
+    },
+    "devDependencies": {
+        "electron": "^1.8.4",
+        "electron-builder": "^20.8.1",
+        "electron-rebuild": "^1.7.3"
+    }
+}
