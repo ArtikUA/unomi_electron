@@ -38,7 +38,7 @@
       </span>
       <span id="signout" class="align-right">
         <img class="off" src="images/signout.png" alt="">
-        Sign Out
+        <span>Sign Out</span>
       </span>
     </footer>
 
@@ -51,11 +51,25 @@ const { ipcRenderer } = require('electron');
 document.getElementById('open').addEventListener('click', (event) => {
   event.preventDefault();
   ipcRenderer.send('app:open');
-})
+});
 document.getElementById('signout').addEventListener('click', (event) => {
   event.preventDefault();
   ipcRenderer.send('signout');
-})
+});
+
+if (process.platform === 'darwin'){
+  let css = 'mac.css';
+} else {
+  let css = 'windows.css';
+}
+
+let link = document.createElement( "link" );
+link.href = "css/"+css;
+link.type = "text/css";
+link.rel = "stylesheet";
+
+
+document.getElementsByTagName( "head" )[0].appendChild( link );
 
 </script>
 </body>

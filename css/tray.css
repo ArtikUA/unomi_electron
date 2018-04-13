@@ -27,7 +27,7 @@ border-top-right-radius: 10px;
 color:#fff;
 font-size: 18px;
 text-transform: uppercase;
-padding-top: 10px;
+padding-top: 11px;
 padding-left: 15px;
 }
 
@@ -120,14 +120,17 @@ font-size: 13px;
 }
 
 footer .align-left{
-  padding-top: 5px;
+  padding-top: 6px;
 }
 
 footer .align-right {
-  padding-top: 52x;
   padding-top: 5px;
   cursor: pointer;
 }
 footer .align-right img{
   float:left;
+}
+footer .align-right span{
+  position: relative;
+  top:1px;
 }

@@ -109,6 +109,11 @@ app.on('ready', function() {
 });
 
 
+app.setLoginItemSettings({
+    openAtLogin: true,
+    openAsHidden: true
+  })
+
 app.on('close', () => {
     win = null;
 });
@@ -126,11 +131,11 @@ app.on('window-all-closed', function () {
 
 ipcMain.on('app:open', () => {
   createAppWindow();
-})
+});
 
 ipcMain.on('signout', () => {
   app.quit();
-})
+});
 
 
 
