@@ -12,19 +12,19 @@ autoUpdater.logger.transports.file.level = 'info';
 
 autoUpdater.on('checking-for-update', () => {
 
-})
+});
 
 autoUpdater.on('update-avelable', (info) => {
 
-})
+});
 
 autoUpdater.on('update-downloaded', (info) => {
   autoUpdater.quitAndInstall();
-})
+});
 
 autoUpdater.on('error', (error) => {
 
-})
+});
 
 
 let win = null;
@@ -64,6 +64,7 @@ function createTrayWindow(){
         transparent: true
     });
     trayWin.loadURL(`file://${__dirname}/tray_window.html`);
+    //trayWin.webContents.openDevTools()
 }
 
 
