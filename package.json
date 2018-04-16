@@ -1,5 +1,5 @@
 {
-    "name": "unomi",
+    "name": "Unomi",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -21,11 +21,16 @@
     "build": {
         "appId": "com.electron.unomi",
         "copyright": "Copyright © 2018 undefined",
-        "productName": "unomi",
+        "productName": "Unomi",
         "electronVersion": "1.8.4",
         "asar": true,
         "directories": {
             "output": "dist"
+        },
+        "publish":{
+            "provider":"github",
+            "repo": "Unomi",
+            "owner": "ArtikUA"
         },
         "mac": {
             "target": [
@@ -34,11 +39,11 @@
             ],
             "category": "public.app-category.Graphics-design",
             "identity": null,
-            "icon": "images/unomi.icns"
+            "icon": "images/icon.icns"
         },
         "dmg": {
             "background": "images/background.tif",
-            "icon": "images/unomi.icns",
+            "icon": "images/icon.icns",
             "iconSize": "100",
             "window": {
                 "width": 544,
