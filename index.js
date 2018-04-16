@@ -110,13 +110,21 @@ app.on('ready', function() {
     trayWin.on('blur', () => {
       trayWin.hide();
     })
+
+    if (process.platform !== 'darwin'){
+        let autoLaunch = new AutoLaunch({
+            name: 'Unomi',
+            path: app.getPath('exe'),
+          });
+          autoLaunch.isEnabled().then((isEnabled) => {
+            if (!isEnabled) autoLaunch.enable();
+          });
+    }
 });
 
 
-app.setLoginItemSettings({
-    openAtLogin: true,
-    openAsHidden: true
-  })
+
+
 
 app.on('close', () => {
     win = null;

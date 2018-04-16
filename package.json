@@ -64,13 +64,14 @@
         },
         "win": {
           "target": ["nsis"],
-          "icon": "images/128X128.ico"
+          "icon": "images/256X256.ico"
         },
         "nsis": {
-          "installerIcon": "images/128X128.ico",
-          "uninstallerIcon": "images/128X128.ico",
+          "installerIcon": "images/256X256.ico",
+          "uninstallerIcon": "images/256X256.ico",
           "license": "LICENSE",
-          "runAfterFinish": true
+          "runAfterFinish": true,
+            "menuCategory": ["Startup"]
         }
     },
     "devDependencies": {

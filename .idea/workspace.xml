@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a577ae4f-a41f-4da6-81d2-b5c41df1fd6d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/tray_window.html" beforeDir="false" afterPath="$PROJECT_DIR$/tray_window.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/tray.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tray.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/windows.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/windows.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +20,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+            <state relative-caret-position="323">
+              <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -31,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tray_window.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tray_window.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tray_window.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="362">
@@ -40,20 +44,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="windows.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/windows.css">
+      <file leaf-file-name="tray.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/tray.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="328">
+              <caret line="94" column="7" selection-start-line="91" selection-end-line="96" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="windows.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/windows.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+            <state relative-caret-position="438">
+              <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -67,12 +80,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignire" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/tray_window.html" />
         <option value="$PROJECT_DIR$/css/tray.css" />
         <option value="$PROJECT_DIR$/css/windows.css" />
-        <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/tray_window.html" />
       </list>
     </option>
   </component>
@@ -244,13 +257,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignire" />
     <entry file="file://$PROJECT_DIR$/.gitignire" />
     <entry file="file://$PROJECT_DIR$/.gitignire" />
-    <entry file="file://$PROJECT_DIR$/css/tray.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="10" selection-start-line="6" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -265,31 +271,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/tray_window.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        <state relative-caret-position="362">
+          <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/tray.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="94" column="7" selection-start-line="91" selection-end-line="96" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/windows.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        <state relative-caret-position="75">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tray_window.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="2" />
+        <state relative-caret-position="438">
+          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
         </state>
       </provider>
     </entry>
