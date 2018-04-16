@@ -70,8 +70,7 @@
           "installerIcon": "images/256X256.ico",
           "uninstallerIcon": "images/256X256.ico",
           "license": "LICENSE",
-          "runAfterFinish": true,
-            "menuCategory": ["Startup"]
+          "runAfterFinish": true
         }
     },
     "devDependencies": {
