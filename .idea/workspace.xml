@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a577ae4f-a41f-4da6-81d2-b5c41df1fd6d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tray_window.html" beforeDir="false" afterPath="$PROJECT_DIR$/tray_window.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,6 +31,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="tray_window.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tray_window.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="windows.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/windows.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="407">
@@ -59,11 +68,11 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignire" />
         <option value="$PROJECT_DIR$/css/tray.css" />
-        <option value="$PROJECT_DIR$/tray_window.html" />
         <option value="$PROJECT_DIR$/css/windows.css" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/tray_window.html" />
       </list>
     </option>
   </component>
@@ -235,13 +244,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignire" />
     <entry file="file://$PROJECT_DIR$/.gitignire" />
     <entry file="file://$PROJECT_DIR$/.gitignire" />
-    <entry file="file://$PROJECT_DIR$/tray_window.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="23" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/tray.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -281,6 +283,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tray_window.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="62" column="2" selection-start-line="62" selection-start-column="2" selection-end-line="62" selection-end-column="2" />
         </state>
       </provider>
     </entry>
