@@ -21,12 +21,18 @@ cache:
   - $HOME/.cache/electron-builder
   - $HOME/.npm/_prebuilds
 
+branches:
+  only:
+  - master
 
 install:
   - npm install
 
 script:
-  - npm run dist-mac-prod
+  - if [ "$TRAVIS_BRANCH" == "production" ]; then npm run dist-mac-prod; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then npm run dist-mac-staging; fi
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run dist-mac-dev; fi
+
 
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
