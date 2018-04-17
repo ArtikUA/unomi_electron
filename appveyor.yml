@@ -22,6 +22,8 @@ for:
   branches:
     only:
       - master
+  environment:
+    SITE: https://unomi-staging.enkonix.com/
 
   build_script:
     - npm run dist-win-staging
@@ -30,6 +32,8 @@ for:
   branches:
     only:
       - production
+  environment:
+    SITE: https://getunomi.com/
 
   build_script:
     - npm run dist-win-prod
@@ -38,6 +42,9 @@ for:
   branches:
     only:
       - develop
+      
+  environment:
+    SITE: https://unomi-develop.enkonix.com/
 
   build_script:
     - npm run dist-win-dev
