@@ -1,0 +1,45 @@
+{
+        "appId": "com.electron.unomi",
+        "copyright": "Copyright © 2018 undefined",
+        "productName": "Unomi-dev",
+        "electronVersion": "1.8.4",
+        "asar": true,
+        "publish":{
+            "provider":"github",
+            "repo": "unomi_electron",
+            "owner": "ArtikUA"
+        },
+        "directories":{
+            "output": "dist/mac_dev"
+        },
+        "mac": {
+            "target": [
+                "dmg",
+                "zip"
+            ],
+            "category": "public.app-category.Graphics-design",
+            "identity": null,
+            "icon": "images/icon.icns"
+        },
+        "dmg": {
+            "background": "images/background.tif",
+            "icon": "images/icon.icns",
+            "iconSize": "100",
+            "window": {
+                "width": 544,
+                "height": 408
+            },
+            "contents": [
+                {
+                    "x": 145,
+                    "y": 257
+                },
+                {
+                    "x": 400,
+                    "y": 255,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        }
+    }

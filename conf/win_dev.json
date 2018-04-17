@@ -1,0 +1,25 @@
+{
+  "appId": "com.electron.unomi",
+  "copyright": "Copyright © 2018 undefined",
+  "productName": "Unomi-dev",
+  "electronVersion": "1.8.4",
+  "asar": true,
+  "directories": {
+    "output": "dist/win_dev"
+  },
+  "publish":{
+    "provider":"github",
+    "repo": "unomi_electron",
+    "owner": "ArtikUA"
+  },
+  "win": {
+    "target": ["nsis"],
+    "icon": "images/256X256.ico"
+  },
+  "nsis": {
+    "installerIcon": "images/256X256.ico",
+    "uninstallerIcon": "images/256X256.ico",
+    "license": "LICENSE",
+    "runAfterFinish": true
+  }
+}

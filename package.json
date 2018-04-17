@@ -4,11 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "electron": "./node_modules/.bin/electron .",
+        "electron": "SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron .",
         "pack": "electron-builder --dir",
         "dist-mac": "electron-builder --mac",
         "dist-win": "electron-builder --win",
-        "postinstall": "install-app-deps"
+        "postinstall": "install-app-deps",
+        "dist-mac-prod": "SITE=https://getunomi.com/ electron-builder --mac -c conf/mac_prod.json",
+        "dist-mac-staging": "SITE=https://unomi-staging.enkonix.com/ electron-builder --mac -c conf/mac_staging.json",
+        "dist-mac-dev": "SITE=https://unomi-develop.enkonix.com/ electron-builder --mac -c conf/mac_dev.json",
+        "dist-win-prod": "SITE=https://getunomi.com/ electron-builder --win -c conf/win_prod.json",
+        "dist-win-staging": "SITE=https://unomi-staging.enkonix.com/ electron-builder --win -c conf/win_staging.json",
+        "dist-win-dev": "SITE=https://unomi-develop.enkonix.com/ electron-builder --win -c conf/win_dev.json"
     },
     "author": "",
     "license": "ISC",
@@ -17,61 +23,6 @@
         "electron-is-dev": "^0.3.0",
         "electron-log": "^2.2.14",
         "electron-updater": "^2.21.4"
-    },
-    "build": {
-        "appId": "com.electron.unomi",
-        "copyright": "Copyright © 2018 undefined",
-        "productName": "Unomi",
-        "electronVersion": "1.8.4",
-        "asar": true,
-        "directories": {
-            "output": "dist"
-        },
-        "publish":{
-            "provider":"github",
-            "repo": "Unomi",
-            "owner": "ArtikUA"
-        },
-        "mac": {
-            "target": [
-                "dmg",
-                "zip"
-            ],
-            "category": "public.app-category.Graphics-design",
-            "identity": null,
-            "icon": "images/icon.icns"
-        },
-        "dmg": {
-            "background": "images/background.tif",
-            "icon": "images/icon.icns",
-            "iconSize": "100",
-            "window": {
-                "width": 544,
-                "height": 408
-            },
-            "contents": [
-                {
-                    "x": 145,
-                    "y": 257
-                },
-                {
-                    "x": 400,
-                    "y": 255,
-                    "type": "link",
-                    "path": "/Applications"
-                }
-            ]
-        },
-        "win": {
-          "target": ["nsis"],
-          "icon": "images/256X256.ico"
-        },
-        "nsis": {
-          "installerIcon": "images/256X256.ico",
-          "uninstallerIcon": "images/256X256.ico",
-          "license": "LICENSE",
-          "runAfterFinish": true
-        }
     },
     "devDependencies": {
         "electron": "^1.8.4",

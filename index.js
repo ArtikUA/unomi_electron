@@ -5,6 +5,8 @@ const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 
+
+
 // setup loger
 
 autoUpdater.logger = require('electron-log');
@@ -27,9 +29,15 @@ autoUpdater.on('error', (error) => {
 });
 
 
+
+
+
 let win = null;
 let trayWin = null;
 let tray = null;
+
+let onlineStatusWindow = '';
+let onlineStatus = '';
 
 let unomiAutoLauncher = new AutoLaunch({
     name: 'Unomi',
@@ -76,7 +84,7 @@ function createAppWindow() {
       width: 900,
       height: 600
     });
-    win.loadURL('https://unomi-develop.enkonix.com/');
+    win.loadURL(process.env.SITE);
 }
 
 
@@ -84,6 +92,9 @@ app.on('ready', function() {
     if (process.platform === 'darwin'){
         app.dock.hide();
     }
+
+    onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+    onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 
     if (!isDev){
       autoUpdater.checkForUpdates();
@@ -148,6 +159,11 @@ ipcMain.on('app:open', () => {
 ipcMain.on('signout', () => {
   app.quit();
 });
+
+ipcMain.on('online-status-changed', (event, status) => {
+    onlineStatus = status;
+    console.log(status);
+})
 
 
 
