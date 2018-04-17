@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a577ae4f-a41f-4da6-81d2-b5c41df1fd6d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/mac_dev.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/mac_prod.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/mac_staging.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/win_dev.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/win_prod.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/win_staging.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online-status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,8 +61,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="328">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -227,8 +217,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4027972" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26067746" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4027972" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26067746" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="SciView" order="5" />
@@ -453,8 +443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        <state relative-caret-position="328">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
