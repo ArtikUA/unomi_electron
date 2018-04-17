@@ -12,9 +12,9 @@
         "dist-mac-prod": "SITE=https://getunomi.com/ electron-builder --mac -c conf/mac_prod.json -c.extraMetadata.name=unomi-dev",
         "dist-mac-staging": "SITE=https://unomi-staging.enkonix.com/ electron-builder --mac -c conf/mac_staging.json",
         "dist-mac-dev": "SITE=https://unomi-develop.enkonix.com/ electron-builder --mac -c conf/mac_dev.json",
-        "dist-win-prod": "electron-builder --win --arch all -c conf/win_prod.json",
-        "dist-win-staging": "electron-builder --win --arch all -c conf/win_staging.json",
-        "dist-win-dev": "electron-builder --win --arch all -c conf/win_dev.json"
+        "dist-win-prod": "electron-builder --win  -c conf/win_prod.json",
+        "dist-win-staging": "electron-builder --win  -c conf/win_staging.json",
+        "dist-win-dev": "electron-builder --win  -c conf/win_dev.json -c.extraMetadata.name=unomi-dev"
     },
     "author": "",
     "license": "ISC",
