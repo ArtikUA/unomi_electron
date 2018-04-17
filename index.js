@@ -38,6 +38,7 @@ let tray = null;
 
 let onlineStatusWindow = '';
 let onlineStatus = '';
+let noInternet = null;
 
 let unomiAutoLauncher = new AutoLaunch({
     name: 'Unomi',
@@ -87,6 +88,17 @@ function createAppWindow() {
     win.loadURL(process.env.SITE);
 }
 
+function noInternetWindow() {
+    // Create the browser window.
+    noInternet = new BrowserWindow({
+      minWidth: 320,
+      minHeight: 500,
+      width: 820,
+      height: 640
+    });
+    noInternet.loadURL(`file://${__dirname}/no_internet.html`);
+}
+
 
 app.on('ready', function() {
     if (process.platform === 'darwin'){
@@ -114,13 +126,13 @@ app.on('ready', function() {
           y: yPosition,
           width: width,
           height: height
-        })
+        });
         trayWin.show();
       }
-    })
+    });
     trayWin.on('blur', () => {
       trayWin.hide();
-    })
+    });
 
     if (process.platform !== 'darwin'){
         let autoLaunch = new AutoLaunch({
@@ -153,7 +165,12 @@ app.on('window-all-closed', function () {
 
 
 ipcMain.on('app:open', () => {
-  createAppWindow();
+    if (onlineStatus == 'online'){
+        createAppWindow();
+    } else {
+        noInternetWindow();
+    }
+
 });
 
 ipcMain.on('signout', () => {
@@ -163,6 +180,13 @@ ipcMain.on('signout', () => {
 ipcMain.on('online-status-changed', (event, status) => {
     onlineStatus = status;
     console.log(status);
+    if (status == 'online'){
+        if(noInternet){
+            noInternet.hide();
+            noInternet = null;
+            createAppWindow();
+        }
+    }
 })
 
 
