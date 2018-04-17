@@ -1,7 +1,7 @@
 {
         "appId": "com.electron.unomi",
         "copyright": "Copyright © 2018 undefined",
-        "productName": "Unomi-staging",
+        "productName": "unomi-staging",
         "electronVersion": "1.8.4",
         "asar": true,
         "publish":{
