@@ -1,6 +1,12 @@
 platform:
   - x64
 
+branches:
+    only:
+      - master
+      - develop
+      - production
+
 cache:
   - node_modules
   - '%APPDATA%\npm-cache'
