@@ -5,6 +5,8 @@ const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 
+require('electron-debug')({showDevTools: true});
+
 console.log(process.env.SITE);
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
@@ -81,7 +83,7 @@ function createTrayWindow(){
 
 function createAppWindow() {
     // Create the browser window.
-    dialog.showErrorBox(title='er', content=process.env.SITE);
+    //dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
       minWidth: 320,
       minHeight: 500,
@@ -142,7 +144,7 @@ app.on('ready', function() {
     trayWin.on('blur', () => {
       trayWin.hide();
     });
-
+/*
     if (process.platform !== 'darwin'){
         let autoLaunch = new AutoLaunch({
             name: 'Unomi',
@@ -152,6 +154,7 @@ app.on('ready', function() {
             if (!isEnabled) autoLaunch.enable();
           });
     }
+    */
 });
 
 
@@ -196,7 +199,7 @@ ipcMain.on('online-status-changed', (event, status) => {
             createAppWindow();
         }
     }
-})
+});
 
 
 
