@@ -10,7 +10,7 @@ var fs = require('fs');
 if(process.platform === 'win32'){
     if(process.env.SITE){
         let site = process.env.SITE;
-        fs.writeFile('site.js', 'export let site = '+site, function (err) {
+        fs.writeFile('site.js', 'export let site = "'+site+'"', function (err) {
           if (err) return console.log(err);
           console.log('write site');
         });
