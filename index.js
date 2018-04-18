@@ -88,6 +88,7 @@ function createAppWindow() {
       height: 600
     });
     win.loadURL(process.env.SITE);
+    trayWin.webContents.openDevTools();
 }
 
 function noInternetWindow() {
