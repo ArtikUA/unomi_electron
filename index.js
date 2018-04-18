@@ -10,7 +10,7 @@ var fs = require('fs');
 if(process.platform === 'win32'){
     if(process.env.SITE){
         let site = process.env.SITE;
-        fs.writeFile('site.js', 'export let site = "'+site+'"', function (err) {
+        fs.writeFile('site.js', 'module.exports.url = "'+site+'"', function (err) {
           if (err) return console.log(err);
           console.log('write site');
         });
@@ -108,8 +108,8 @@ function createAppWindow() {
         }
     });
     if(!process.env.SITE){
-        let url = require('./site');
-        win.loadURL(url);
+        let site = require('./site');
+        win.loadURL(site.url);
 
     } else {
         win.loadURL(process.env.SITE);
