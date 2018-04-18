@@ -108,7 +108,7 @@ function createAppWindow() {
         }
     });
     if(!process.env.SITE){
-        let url = require('site');
+        let url = require('./site');
         win.loadURL(url);
 
     } else {
