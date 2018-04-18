@@ -93,7 +93,8 @@ function createAppWindow() {
           nodeIntegration:false
         }
     });
-    win.loadURL(process.env.SITE);
+    //win.loadURL(process.env.SITE);
+    win.loadURL('https://unomi-develop.enkonix.com/');
     win.webContents.openDevTools();
 
 
