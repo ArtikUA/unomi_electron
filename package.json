@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "electron": "cross-env SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron .",
+        "electron": "cross-env SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron . https://getunomi.com/",
         "pack": "electron-builder --dir",
         "dist-mac": "electron-builder --mac",
         "dist-win": "electron-builder --win",
@@ -12,9 +12,9 @@
         "dist-mac-prod": "SITE=https://getunomi.com/ electron-builder --mac -c conf/mac_prod.json",
         "dist-mac-staging": "SITE=https://unomi-staging.enkonix.com/ electron-builder --mac -c conf/mac_staging.json -c.extraMetadata.name=unomi-staging",
         "dist-mac-dev": "SITE=https://unomi-develop.enkonix.com/ electron-builder --mac -c conf/mac_dev.json -c.extraMetadata.name=unomi-dev",
-        "dist-win-prod": "cross-env SITE=https://getunomi.com/  electron-builder --win  -c conf/win_prod.json",
-        "dist-win-staging": "cross-env SITE=https://unomi-staging.enkonix.com/  electron-builder --win  -c conf/win_staging.json -c.extraMetadata.name=unomi-staging",
-        "dist-win-dev": "cross-env SITE=https://unomi-develop.enkonix.com/  electron-builder --win  -c conf/win_dev.json -c.extraMetadata.name=unomi-dev"
+        "dist-win-prod": "cross-env SITE=https://getunomi.com/  electron-builder --win  -c conf/win_prod.json https://getunomi.com/",
+        "dist-win-staging": "cross-env SITE=https://unomi-staging.enkonix.com/  electron-builder --win  -c conf/win_staging.json -c.extraMetadata.name=unomi-staging https://unomi-staging.enkonix.com/",
+        "dist-win-dev": "cross-env SITE=https://unomi-develop.enkonix.com/  electron-builder --win  -c conf/win_dev.json -c.extraMetadata.name=unomi-dev https://unomi-develop.enkonix.com/"
     },
     "author": "",
     "license": "ISC",

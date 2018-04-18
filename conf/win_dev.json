@@ -1,6 +1,6 @@
 {
   "appId": "com.electron.unomi",
-  "copyright": "Copyright © 2018 undefined",
+  "copyright": "Copyright © 2018",
   "productName": "Unomi-dev",
   "electronVersion": "1.8.4",
   "asar": true,

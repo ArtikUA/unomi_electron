@@ -4,10 +4,24 @@ const url = require('url');
 const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
+var fs = require('fs');
 
-require('electron-debug')({showDevTools: true});
+
+if(process.platform === 'win32'){
+    if(process.env.SITE){
+        let site = process.env.SITE;
+        fs.writeFile('site.js', 'export let site = '+site, function (err) {
+          if (err) return console.log(err);
+          console.log('write site');
+        });
+    }
+}
+
+
+
 
 console.log(process.env.SITE);
+console.log('process.argv', process.argv[process.argv.length - 1]);
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
@@ -93,7 +107,14 @@ function createAppWindow() {
           nodeIntegration:false
         }
     });
-    win.loadURL(process.env.SITE);
+    if(!process.env.SITE){
+        let url = require('site');
+        win.loadURL(url);
+
+    } else {
+        win.loadURL(process.env.SITE);
+    }
+
     //win.loadURL('https://unomi-develop.enkonix.com/');
     //win.webContents.openDevTools();
 
