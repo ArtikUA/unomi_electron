@@ -5,7 +5,7 @@ const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 
-
+console.log(process.env.SITE);
 
 // setup loger
 
