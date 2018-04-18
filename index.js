@@ -44,6 +44,27 @@ let onlineStatusWindow = '';
 let onlineStatus = '';
 let noInternet = null;
 
+const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
+  });
+console.log(isSecondWin);
+  if (isSecondWin) {
+    app.quit()
+  }
+
+  const isSecondTray = app.makeSingleInstance((commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+
+  });
+
+  if (isSecondTray) {
+    app.quit()
+  }
+
 let unomiAutoLauncher = new AutoLaunch({
     name: 'Unomi',
     path: '/Applications/unomi.app',
@@ -78,10 +99,18 @@ function createTrayWindow(){
     });
     trayWin.loadURL(`file://${__dirname}/tray_window.html`);
     //trayWin.webContents.openDevTools()
+    trayWin.on('close', () => {
+        trayWin = null;
+    });
 }
 
 
 function createAppWindow() {
+    if (win){
+        if (win.isMinimized()) win.restore();
+        win.focus();
+        return
+    }
     // Create the browser window.
     //dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
@@ -96,10 +125,13 @@ function createAppWindow() {
     if(!process.env.SITE){
         let site = require('./site');
         win.loadURL(site.url);
-
     } else {
         win.loadURL(process.env.SITE);
     }
+
+    win.on('close', () => {
+        win = null;
+    });
 
     //win.loadURL('https://unomi-develop.enkonix.com/');
     //win.webContents.openDevTools();
@@ -109,6 +141,10 @@ function createAppWindow() {
 
 function noInternetWindow() {
     // Create the browser window.
+    if(noInternet){
+        if(noInternet.isMinimized()) noInternet.restore()
+        noInternet.focus()
+    }
     noInternet = new BrowserWindow({
       minWidth: 320,
       minHeight: 500,
@@ -116,6 +152,9 @@ function noInternetWindow() {
       height: 640
     });
     noInternet.loadURL(`file://${__dirname}/no_internet.html`);
+    noInternet.on('close', () => {
+        noInternet = null;
+    });
 }
 
 
@@ -169,9 +208,9 @@ app.on('ready', function() {
 
 
 
-app.on('close', () => {
-    win = null;
-});
+
+
+
 
 
 app.on('window-all-closed', function () {
