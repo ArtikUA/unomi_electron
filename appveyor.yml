@@ -32,6 +32,7 @@ for:
     SITE: https://unomi-staging.enkonix.com/
 
   build_script:
+    - npm run site-staging
     - npm run dist-win-staging
 
 -
@@ -42,6 +43,7 @@ for:
     SITE: https://getunomi.com/
 
   build_script:
+    - npm run site-prod
     - npm run dist-win-prod
 
 -
@@ -53,6 +55,7 @@ for:
     SITE: https://unomi-develop.enkonix.com/
 
   build_script:
+    - npm run site-dev
     - npm run dist-win-dev
 
 test: off

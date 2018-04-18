@@ -33,9 +33,9 @@ install:
   - npm install
 
 script:
-  - if [ "$TRAVIS_BRANCH" == "production" ]; then npm run dist-mac-prod; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then npm run dist-mac-staging; fi
-  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run dist-mac-dev; fi
+  - if [ "$TRAVIS_BRANCH" == "production" ]; then npm run site-prod && npm run dist-mac-prod; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then npm run site-staging && npm run dist-mac-staging; fi
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run site-dev && npm run dist-mac-dev; fi
 
 
 before_cache:

@@ -4,6 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "site-dev":"cross-env SITE=https://unomi-develop.enkonix.com/  node run_before_build",
+        "site-prod":"cross-env SITE=https://getunomi.com/  node run_before_build",
+        "site-staging":"cross-env SITE=https://unomi-develop.enkonix.com/  node run_before_build",
         "electron": "cross-env SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron . https://getunomi.com/",
         "pack": "electron-builder --dir",
         "dist-mac": "electron-builder --mac",

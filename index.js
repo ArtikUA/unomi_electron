@@ -4,21 +4,7 @@ const url = require('url');
 const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
-var fs = require('fs');
-
-
-if(process.platform === 'win32'){
-    if(process.env.SITE){
-        let site = process.env.SITE;
-        fs.writeFile('site.js', 'module.exports.url = "'+site+'"', function (err) {
-          if (err) return console.log(err);
-          console.log('write site');
-        });
-    }
-}
-
-
-
+const fs = require('fs');
 
 console.log(process.env.SITE);
 console.log('process.argv', process.argv[process.argv.length - 1]);
