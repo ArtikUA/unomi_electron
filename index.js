@@ -1,11 +1,15 @@
-const {app, BrowserWindow, Tray, nativeImage, ipcMain} = require('electron');
+const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
 const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
+const fs = require('fs');
 
+console.log(process.env.SITE);
+console.log('process.argv', process.argv[process.argv.length - 1]);
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 // setup loger
 
@@ -38,6 +42,7 @@ let tray = null;
 
 let onlineStatusWindow = '';
 let onlineStatus = '';
+let noInternet = null;
 
 let unomiAutoLauncher = new AutoLaunch({
     name: 'Unomi',
@@ -78,13 +83,39 @@ function createTrayWindow(){
 
 function createAppWindow() {
     // Create the browser window.
+    //dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
       minWidth: 320,
       minHeight: 500,
       width: 900,
-      height: 600
+      height: 600,
+        webPreferences:{
+          nodeIntegration:false
+        }
     });
-    win.loadURL(process.env.SITE);
+    if(!process.env.SITE){
+        let site = require('./site');
+        win.loadURL(site.url);
+
+    } else {
+        win.loadURL(process.env.SITE);
+    }
+
+    //win.loadURL('https://unomi-develop.enkonix.com/');
+    //win.webContents.openDevTools();
+
+
+}
+
+function noInternetWindow() {
+    // Create the browser window.
+    noInternet = new BrowserWindow({
+      minWidth: 320,
+      minHeight: 500,
+      width: 820,
+      height: 640
+    });
+    noInternet.loadURL(`file://${__dirname}/no_internet.html`);
 }
 
 
@@ -114,14 +145,14 @@ app.on('ready', function() {
           y: yPosition,
           width: width,
           height: height
-        })
+        });
         trayWin.show();
       }
-    })
+    });
     trayWin.on('blur', () => {
       trayWin.hide();
-    })
-
+    });
+/*
     if (process.platform !== 'darwin'){
         let autoLaunch = new AutoLaunch({
             name: 'Unomi',
@@ -131,6 +162,7 @@ app.on('ready', function() {
             if (!isEnabled) autoLaunch.enable();
           });
     }
+    */
 });
 
 
@@ -153,7 +185,12 @@ app.on('window-all-closed', function () {
 
 
 ipcMain.on('app:open', () => {
-  createAppWindow();
+    if (onlineStatus == 'online'){
+        createAppWindow();
+    } else {
+        noInternetWindow();
+    }
+
 });
 
 ipcMain.on('signout', () => {
@@ -163,7 +200,14 @@ ipcMain.on('signout', () => {
 ipcMain.on('online-status-changed', (event, status) => {
     onlineStatus = status;
     console.log(status);
-})
+    if (status == 'online'){
+        if(noInternet){
+            noInternet.hide();
+            noInternet = null;
+            createAppWindow();
+        }
+    }
+});
 
 
 
