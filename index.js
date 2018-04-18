@@ -85,7 +85,10 @@ function createAppWindow() {
       minWidth: 320,
       minHeight: 500,
       width: 900,
-      height: 600
+      height: 600,
+        webPreferences:{
+          nodeIntegration:false
+        }
     });
     win.loadURL(process.env.SITE);
     win.webContents.openDevTools();
