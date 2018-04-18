@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Tray, nativeImage, ipcMain} = require('electron');
+const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
@@ -81,6 +81,7 @@ function createTrayWindow(){
 
 function createAppWindow() {
     // Create the browser window.
+    dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
       minWidth: 320,
       minHeight: 500,
@@ -92,6 +93,8 @@ function createAppWindow() {
     });
     win.loadURL(process.env.SITE);
     win.webContents.openDevTools();
+
+
 }
 
 function noInternetWindow() {
