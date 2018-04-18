@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "electron": "SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron .",
+        "electron": "cross-env SITE=https://unomi-develop.enkonix.com/ ./node_modules/.bin/electron .",
         "pack": "electron-builder --dir",
         "dist-mac": "electron-builder --mac",
         "dist-win": "electron-builder --win",
