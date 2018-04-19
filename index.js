@@ -56,13 +56,13 @@ console.log(isSecondWin);
   }
 
 
-
-let unomiAutoLauncher = new AutoLaunch({
-    name: 'Unomi',
-    path: '/Applications/unomi.app',
-});
-
-unomiAutoLauncher.enable();
+if (process.platform === 'darwin') {
+    let unomiAutoLauncher = new AutoLaunch({
+        name: 'Unomi',
+        path: '/Applications/unomi.app',
+    });
+    unomiAutoLauncher.enable();
+}
 
 //minecraftAutoLauncher.disable();
 
@@ -183,7 +183,7 @@ app.on('ready', function() {
     trayWin.on('blur', () => {
       trayWin.hide();
     });
-/*
+
     if (process.platform !== 'darwin'){
         let autoLaunch = new AutoLaunch({
             name: 'Unomi',
@@ -192,8 +192,10 @@ app.on('ready', function() {
           autoLaunch.isEnabled().then((isEnabled) => {
             if (!isEnabled) autoLaunch.enable();
           });
+    } else {
+
     }
-    */
+
 });
 
 
