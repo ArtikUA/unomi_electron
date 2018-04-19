@@ -164,33 +164,27 @@ app.on('ready', function() {
       trayWin.hide();
     });
 
-    if (process.platform === 'darwin') {
+
+
+    //minecraftAutoLauncher.disable();
+
     let unomiAutoLauncher = new AutoLaunch({
         name: app.getName(),
         path: app.getPath('exe'),
     });
     unomiAutoLauncher.enable();
-} else {
-      let unomiAutoLauncher = new AutoLaunch({
-            name: app.getName(),
-            path: app.getPath('exe'),
-          });
-      unomiAutoLauncher.enable();
-}
-
-//minecraftAutoLauncher.disable();
 
 
-unomiAutoLauncher.isEnabled()
-.then(function(isEnabled){
-    if(isEnabled){
-        return;
-    }
-    unomiAutoLauncher.enable();
-})
-.catch(function(err){
-    // handle error
-});
+    unomiAutoLauncher.isEnabled()
+    .then(function(isEnabled){
+        if(isEnabled){
+            return;
+        }
+        unomiAutoLauncher.enable();
+    })
+    .catch(function(err){
+        // handle error
+    });
 
 
 
