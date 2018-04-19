@@ -134,7 +134,8 @@ app.on('ready', function() {
     });
 
     if (isSecondWin) {
-        app.quit()
+        app.quit();
+        return
     }
 
     onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
