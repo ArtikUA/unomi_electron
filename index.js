@@ -6,10 +6,11 @@ const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 const fs = require('fs');
 
-console.log(process.env.SITE);
-console.log('process.argv', process.argv[process.argv.length - 1]);
+
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
+
+
 
 // setup loger
 
@@ -44,47 +45,10 @@ let onlineStatusWindow = '';
 let onlineStatus = '';
 let noInternet = null;
 
-const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (win) {
-      if (win.isMinimized()) win.restore()
-      win.focus()
-    }
-  });
-console.log(isSecondWin);
-  if (isSecondWin) {
-    app.quit()
-  }
-
-  const isSecondTray = app.makeSingleInstance((commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-
-  });
-
-  if (isSecondTray) {
-    app.quit()
-  }
-
-let unomiAutoLauncher = new AutoLaunch({
-    name: 'Unomi',
-    path: '/Applications/unomi.app',
-});
-
-unomiAutoLauncher.enable();
-
-//minecraftAutoLauncher.disable();
 
 
-unomiAutoLauncher.isEnabled()
-.then(function(isEnabled){
-    if(isEnabled){
-        return;
-    }
-    unomiAutoLauncher.enable();
-})
-.catch(function(err){
-    // handle error
-});
+
+
 
 
 function createTrayWindow(){
@@ -162,6 +126,17 @@ app.on('ready', function() {
     if (process.platform === 'darwin'){
         app.dock.hide();
     }
+    const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
+        if (trayWin) {
+          if (trayWin.isMinimized()) trayWin.restore()
+          trayWin.focus()
+        }
+    });
+
+    if (isSecondWin) {
+        app.quit();
+        return
+    }
 
     onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
     onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
@@ -191,17 +166,31 @@ app.on('ready', function() {
     trayWin.on('blur', () => {
       trayWin.hide();
     });
-/*
-    if (process.platform !== 'darwin'){
-        let autoLaunch = new AutoLaunch({
-            name: 'Unomi',
-            path: app.getPath('exe'),
-          });
-          autoLaunch.isEnabled().then((isEnabled) => {
-            if (!isEnabled) autoLaunch.enable();
-          });
-    }
-    */
+
+
+
+    //minecraftAutoLauncher.disable();
+
+    let unomiAutoLauncher = new AutoLaunch({
+        name: app.getName(),
+        path: app.getPath('exe'),
+    });
+    unomiAutoLauncher.enable();
+
+
+    unomiAutoLauncher.isEnabled()
+    .then(function(isEnabled){
+        if(isEnabled){
+            return;
+        }
+        unomiAutoLauncher.enable();
+    })
+    .catch(function(err){
+        // handle error
+    });
+
+
+
 });
 
 
