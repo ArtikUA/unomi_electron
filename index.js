@@ -56,27 +56,7 @@ console.log(isSecondWin);
   }
 
 
-if (process.platform === 'darwin') {
-    let unomiAutoLauncher = new AutoLaunch({
-        name: 'Unomi',
-        path: '/Applications/unomi.app',
-    });
-    unomiAutoLauncher.enable();
-}
 
-//minecraftAutoLauncher.disable();
-
-
-unomiAutoLauncher.isEnabled()
-.then(function(isEnabled){
-    if(isEnabled){
-        return;
-    }
-    unomiAutoLauncher.enable();
-})
-.catch(function(err){
-    // handle error
-});
 
 
 function createTrayWindow(){
@@ -184,17 +164,35 @@ app.on('ready', function() {
       trayWin.hide();
     });
 
-    if (process.platform !== 'darwin'){
-        let autoLaunch = new AutoLaunch({
-            name: 'Unomi',
+    if (process.platform === 'darwin') {
+    let unomiAutoLauncher = new AutoLaunch({
+        name: app.getName(),
+        path: app.getPath('exe'),
+    });
+    unomiAutoLauncher.enable();
+} else {
+      let unomiAutoLauncher = new AutoLaunch({
+            name: app.getName(),
             path: app.getPath('exe'),
           });
-          autoLaunch.isEnabled().then((isEnabled) => {
-            if (!isEnabled) autoLaunch.enable();
-          });
-    } else {
+      unomiAutoLauncher.enable();
+}
 
+//minecraftAutoLauncher.disable();
+
+
+unomiAutoLauncher.isEnabled()
+.then(function(isEnabled){
+    if(isEnabled){
+        return;
     }
+    unomiAutoLauncher.enable();
+})
+.catch(function(err){
+    // handle error
+});
+
+
 
 });
 
