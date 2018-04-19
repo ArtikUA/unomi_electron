@@ -10,16 +10,7 @@ const fs = require('fs');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
-    if (win) {
-      if (win.isMinimized()) win.restore()
-      win.focus()
-    }
-});
 
-if (isSecondWin) {
-    app.quit()
-}
 
 // setup loger
 
@@ -134,6 +125,16 @@ function noInternetWindow() {
 app.on('ready', function() {
     if (process.platform === 'darwin'){
         app.dock.hide();
+    }
+    const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
+        if (trayWin) {
+          if (trayWin.isMinimized()) trayWin.restore()
+          trayWin.focus()
+        }
+    });
+
+    if (isSecondWin) {
+        app.quit()
     }
 
     onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
