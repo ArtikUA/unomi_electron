@@ -6,10 +6,20 @@ const { autoUpdater } = require('electron-updater');
 const isDev = require('electron-is-dev');
 const fs = require('fs');
 
-console.log(process.env.SITE);
-console.log('process.argv', process.argv[process.argv.length - 1]);
+
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
+
+const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
+    if (win) {
+      if (win.isMinimized()) win.restore()
+      win.focus()
+    }
+});
+
+if (isSecondWin) {
+    app.quit()
+}
 
 // setup loger
 
@@ -44,16 +54,7 @@ let onlineStatusWindow = '';
 let onlineStatus = '';
 let noInternet = null;
 
-const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
-    if (win) {
-      if (win.isMinimized()) win.restore()
-      win.focus()
-    }
-  });
-console.log(isSecondWin);
-  if (isSecondWin) {
-    app.quit()
-  }
+
 
 
 
