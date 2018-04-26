@@ -18,7 +18,6 @@
                 "zip"
             ],
             "category": "public.app-category.Graphics-design",
-            "identity": null,
             "icon": "images/icon.icns"
         },
         "dmg": {
