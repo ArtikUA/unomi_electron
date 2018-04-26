@@ -10,8 +10,6 @@ const fs = require('fs');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-
-
 // setup loger
 
 autoUpdater.logger = require('electron-log');
