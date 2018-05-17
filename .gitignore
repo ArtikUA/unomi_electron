@@ -3,4 +3,5 @@ dist
 .idea
 package-lock.json
 site.js
+.DS_Store
 
