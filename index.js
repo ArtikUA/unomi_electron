@@ -105,9 +105,9 @@ function createAppWindow() {
 
 function noInternetWindow() {
     // Create the browser window.
-    if(noInternet){
-        if(noInternet.isMinimized()) noInternet.restore()
-        noInternet.focus()
+    if (noInternet){
+        if(noInternet.isMinimized()) { noInternet.restore(); }
+        noInternet.focus();
     }
     noInternet = new BrowserWindow({
       minWidth: 320,
@@ -123,13 +123,14 @@ function noInternetWindow() {
 
 
 app.on('ready', function() {
+    createAppWindow();
     if (process.platform === 'darwin'){
         app.dock.hide();
     }
     const isSecondWin = app.makeSingleInstance((commandLine, workingDirectory) => {
         if (trayWin) {
-          if (trayWin.isMinimized()) trayWin.restore()
-          trayWin.focus()
+          if (trayWin.isMinimized()) { trayWin.restore(); }
+          trayWin.focus();
         }
     });
 
@@ -170,12 +171,22 @@ app.on('ready', function() {
 
 
     //minecraftAutoLauncher.disable();
+    let unomiAutoLauncher;
 
-    let unomiAutoLauncher = new AutoLaunch({
-        name: app.getName(),
-        path: app.getPath('exe'),
-    });
-    unomiAutoLauncher.enable();
+    if (process.platform === 'darwin'){
+        unomiAutoLauncher = new AutoLaunch({
+          name: 'Unomi',
+          path: '/Applications/Unomi.app',
+        });
+    } else {
+        unomiAutoLauncher = new AutoLaunch({
+            name: app.getName(),
+            path: app.getPath('exe'),
+        });
+        unomiAutoLauncher.enable();
+    }
+
+
 
 
     unomiAutoLauncher.isEnabled()
@@ -186,11 +197,8 @@ app.on('ready', function() {
         unomiAutoLauncher.enable();
     })
     .catch(function(err){
-        // handle error
+        console.log(err);
     });
-
-
-
 });
 
 
