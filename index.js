@@ -74,7 +74,7 @@ function createAppWindow() {
         return
     }
     // Create the browser window.
-    //dialog.showErrorBox(title='er', content=process.env.SITE);
+    // dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
       minWidth: 320,
       minHeight: 500,
@@ -239,7 +239,7 @@ app.on('ready', function() {
         }]
       }];
       let osxMenu = Menu.buildFromTemplate(template);
-      menu.setApplicationMenu(osxMenu);
+      Menu.setApplicationMenu(osxMenu);
     }
 });
 
