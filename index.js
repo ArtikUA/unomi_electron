@@ -1,4 +1,4 @@
-const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain} = require('electron');
+const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain, Menu} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
@@ -95,8 +95,8 @@ function createAppWindow() {
         win = null;
     });
 
-    //win.loadURL('https://unomi-develop.enkonix.com/');
-    //win.webContents.openDevTools();
+    // win.loadURL('https://unomi-develop.enkonix.com/');
+    // win.webContents.openDevTools();
 
 
 }
@@ -197,6 +197,50 @@ app.on('ready', function() {
     .catch(function(err){
         console.log(err);
     });
+
+    if (process.platform === 'darwin') {
+      let template = [{
+        label: 'FromScratch',
+        submenu: [{
+          label: 'Quit',
+          accelerator: 'CmdOrCtrl+Q',
+          click: function() {
+            app.quit();
+          }
+        }]
+      }, {
+        label: 'Edit',
+        submenu: [{
+          label: 'Undo',
+          accelerator: 'CmdOrCtrl+Z',
+          selector: 'undo:'
+        }, {
+          label: 'Redo',
+          accelerator: 'Shift+CmdOrCtrl+Z',
+          selector: 'redo:'
+        }, {
+          type: 'separator'
+        }, {
+          label: 'Cut',
+          accelerator: 'CmdOrCtrl+X',
+          selector: 'cut:'
+        }, {
+          label: 'Copy',
+          accelerator: 'CmdOrCtrl+C',
+          selector: 'copy:'
+        }, {
+          label: 'Paste',
+          accelerator: 'CmdOrCtrl+V',
+          selector: 'paste:'
+        }, {
+          label: 'Select All',
+          accelerator: 'CmdOrCtrl+A',
+          selector: 'selectAll:'
+        }]
+      }];
+      let osxMenu = Menu.buildFromTemplate(template);
+      menu.setApplicationMenu(osxMenu);
+    }
 });
 
 
@@ -242,6 +286,9 @@ ipcMain.on('online-status-changed', (event, status) => {
         }
     }
 });
+
+
+
 
 
 
