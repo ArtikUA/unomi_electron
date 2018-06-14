@@ -7,7 +7,6 @@ const isDev = require('electron-is-dev');
 const fs = require('fs');
 
 
-
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 // setup loger
