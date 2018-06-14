@@ -1,15 +1,16 @@
+
 const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain, Menu, shell} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
-const { autoUpdater } = require('electron-updater');
+const {autoUpdater} = require("electron-updater");
 const isDev = require('electron-is-dev');
 const fs = require('fs');
 
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-
+// autoUpdater.autoDownload = true;
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
 
@@ -18,16 +19,17 @@ autoUpdater.on('checking-for-update', () => {
 });
 
 autoUpdater.on('update-avelable', (info) => {
-    console.log("avaliable updates", info.version)
+    console.log("avaliable updates", info.version);
 
 });
 
 autoUpdater.on('update-downloaded', (info) => {
-  autoUpdater.quitAndInstall();
+    autoUpdater.quitAndInstall();
+    console.log(info);
 });
 
 autoUpdater.on('error', (error) => {
-
+    console.log(error);
 });
 
 let win = null;
@@ -37,7 +39,6 @@ let tray = null;
 let onlineStatusWindow = '';
 let onlineStatus = '';
 let noInternet = null;
-
 
 function createTrayWindow(){
     trayWin = new BrowserWindow({
@@ -126,6 +127,9 @@ function noInternetWindow() {
 
 
 app.on('ready', function() {
+    if (!isDev){
+      autoUpdater.checkForUpdates();
+    }
     createAppWindow();
     if (process.platform === 'darwin'){
         app.dock.hide();
@@ -143,11 +147,8 @@ app.on('ready', function() {
     }
 
     onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
-    onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
+    onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`);
 
-    if (!isDev){
-      autoUpdater.checkForUpdates();
-    }
     tray = new Tray(path.join(__dirname,'images/electron-icon24.png'));
     tray.setToolTip('Unomi');
     createTrayWindow();

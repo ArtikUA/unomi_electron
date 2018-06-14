@@ -1,8 +1,13 @@
 {
     "name": "Unomi",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "main": "index.js",
+    "publish":{
+            "provider":"github",
+            "repo": "unomi_electron",
+            "owner": "ArtikUA"
+    },
     "scripts": {
         "site-dev":"cross-env SITE=https://unomi-develop.enkonix.com/  node run_before_build",
         "site-prod":"cross-env SITE=https://getunomi.com/  node run_before_build",
