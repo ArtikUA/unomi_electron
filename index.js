@@ -1,4 +1,4 @@
-const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain, Menu} = require('electron');
+const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain, Menu, shell} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
@@ -94,6 +94,23 @@ function createAppWindow() {
     win.on('close', () => {
         win = null;
     });
+    win.webContents.on('will-navigate', function(event, url) {
+        console.log('URL will navigate', url);
+        event.preventDefault();
+        console.log(win.webContents.getURL());
+    });
+    win.webContents.on('did-navigate-in-page', function(event, url) {
+        if (url === 'https://unomi-develop.enkonix.com/signup' ||
+        url === 'https://unomi-develop.enkonix.com/accountinformation' ||
+        url === 'https://getunomi.com/accountinformation' ||
+        url === 'https://getunomi.com/signup') {
+            shell.openExternal('https://getunomi.com/accountinformation');
+            win.webContents.goBack()
+        }
+        console.log('URL did navigate', url);
+        event.preventDefault();
+        console.log(win.webContents.getURL());
+    });
 
     // win.loadURL('https://unomi-develop.enkonix.com/');
     // win.webContents.openDevTools();
@@ -168,7 +185,7 @@ app.on('ready', function() {
 
 
 
-    //minecraftAutoLauncher.disable();
+    // minecraftAutoLauncher.disable();
     let unomiAutoLauncher;
 
     if (process.platform === 'darwin'){
