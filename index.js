@@ -105,7 +105,7 @@ function createAppWindow() {
         url === 'https://getunomi.com/accountinformation' ||
         url === 'https://getunomi.com/signup') {
             shell.openExternal('https://getunomi.com/accountinformation');
-            win.webContents.goBack()
+            win.webContents.goBack();
         }
         console.log('URL did navigate', url);
         event.preventDefault();
