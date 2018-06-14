@@ -9,16 +9,16 @@ const fs = require('fs');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-// setup loger
 
 autoUpdater.logger = require('electron-log');
 autoUpdater.logger.transports.file.level = 'info';
 
 autoUpdater.on('checking-for-update', () => {
-
+    console.log('Checking for update');
 });
 
 autoUpdater.on('update-avelable', (info) => {
+    console.log("avaliable updates", info.version)
 
 });
 
@@ -29,7 +29,6 @@ autoUpdater.on('update-downloaded', (info) => {
 autoUpdater.on('error', (error) => {
 
 });
-
 
 let win = null;
 let trayWin = null;
