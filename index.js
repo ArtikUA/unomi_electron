@@ -189,9 +189,6 @@ app.on('ready', function() {
         unomiAutoLauncher.enable();
     }
 
-
-
-
     unomiAutoLauncher.isEnabled()
     .then(function(isEnabled){
         if(isEnabled){
