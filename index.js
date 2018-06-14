@@ -32,9 +32,6 @@ autoUpdater.on('error', (error) => {
 });
 
 
-
-
-
 let win = null;
 let trayWin = null;
 let tray = null;
@@ -42,11 +39,6 @@ let tray = null;
 let onlineStatusWindow = '';
 let onlineStatus = '';
 let noInternet = null;
-
-
-
-
-
 
 
 function createTrayWindow(){
@@ -114,8 +106,6 @@ function createAppWindow() {
 
     // win.loadURL('https://unomi-develop.enkonix.com/');
     // win.webContents.openDevTools();
-
-
 }
 
 function noInternetWindow() {
