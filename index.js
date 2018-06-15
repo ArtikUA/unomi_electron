@@ -67,6 +67,7 @@ function createAppWindow() {
     // Create the browser window.
     // dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
+        frame: false,
       minWidth: 320,
       minHeight: 500,
       width: 900,
