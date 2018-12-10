@@ -1,17 +1,17 @@
 {
     "name": "Unomi",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "main": "index.js",
-    "publish":{
-            "provider":"github",
-            "repo": "unomi_electron",
-            "owner": "ArtikUA"
+    "publish": {
+        "provider": "github",
+        "repo": "unomi_electron",
+        "owner": "ArtikUA"
     },
     "scripts": {
-        "site-dev":"cross-env SITE=https://unomi-develop.enkonix.com/  node run_before_build",
-        "site-prod":"cross-env SITE=https://getunomi.com/  node run_before_build",
-        "site-staging":"cross-env SITE=https://unomi-staging.enkonix.com/  node run_before_build",
+        "site-dev": "cross-env SITE=https://unomi-develop.enkonix.com/  node run_before_build",
+        "site-prod": "cross-env SITE=https://getunomi.com/  node run_before_build",
+        "site-staging": "cross-env SITE=https://unomi-staging.enkonix.com/  node run_before_build",
         "electron": " ./node_modules/.bin/electron .",
         "pack": "electron-builder --dir",
         "dist-mac": "electron-builder --mac",
@@ -29,6 +29,7 @@
     "dependencies": {
         "auto-launch": "^5.0.5",
         "electron-debug": "^1.5.0",
+        "electron-dl": "^1.12.0",
         "electron-is-dev": "^0.3.0",
         "electron-log": "^2.2.14",
         "electron-updater": "^2.21.4"

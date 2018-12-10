@@ -1,5 +1,5 @@
 
-const {app, BrowserWindow, dialog,  Tray, nativeImage, ipcMain, Menu, shell} = require('electron');
+const {app, BrowserWindow, dialog, webContents,  Tray, nativeImage, ipcMain, Menu, shell} = require('electron');
 const path = require('path');
 const url = require('url');
 const AutoLaunch = require('auto-launch');
@@ -67,7 +67,6 @@ function createAppWindow() {
     // Create the browser window.
     // dialog.showErrorBox(title='er', content=process.env.SITE);
     win = new BrowserWindow({
-        frame: false,
       minWidth: 320,
       minHeight: 500,
       width: 900,
@@ -86,8 +85,13 @@ function createAppWindow() {
     win.on('close', () => {
         win = null;
     });
+
     win.webContents.on('will-navigate', function(event, url) {
         console.log('URL will navigate', url);
+
+        if (url.indexOf("/movies/")) {
+            win.webContents.downloadURL(url);
+        }
         event.preventDefault();
         console.log(win.webContents.getURL());
     });
@@ -105,7 +109,33 @@ function createAppWindow() {
     });
 
     // win.loadURL('https://unomi-develop.enkonix.com/');
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
+    win.webContents.session.on('will-download', (event, item, webContents) => {
+      // Set the save path, making Electron not to prompt a save dialog.
+      //item.setSavePath('/tmp/save.pdf')
+        console.log(item);
+        console.log(event);
+        console.log(webContents);
+
+      item.on('updated', (event, state) => {
+        if (state === 'interrupted') {
+          console.log('Download is interrupted but can be resumed')
+        } else if (state === 'progressing') {
+          if (item.isPaused()) {
+            console.log('Download is paused')
+          } else {
+            console.log(`Received bytes: ${item.getReceivedBytes()}`)
+          }
+        }
+      });
+      item.once('done', (event, state) => {
+        if (state === 'completed') {
+          console.log('Download successfully')
+        } else {
+          console.log(`Download failed: ${state}`)
+        }
+      })
+    })
 }
 
 function noInternetWindow() {
@@ -289,6 +319,13 @@ ipcMain.on('online-status-changed', (event, status) => {
             createAppWindow();
         }
     }
+});
+
+ipcMain.on("download-btn", (event, url, filename, index, file_path) => {
+    console.log(event);
+    console.log(filename);
+    console.log(index);
+    console.log(file_path);
 });
 
 
